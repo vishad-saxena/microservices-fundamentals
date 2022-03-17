@@ -37,6 +37,11 @@ public class UserServiceController {
 ////		user.setContacts(contact);
 //		return user;
 //	}
+public ResponseEntity getUserFallBack(Exception e){
+	String message="service is down please try after sometime";
+	return ResponseEntity.ok().body(message);
+}
+
 	@PostMapping("/addUser")
 	public void addUser(@RequestBody User user){
 		service.saveUser(user);
